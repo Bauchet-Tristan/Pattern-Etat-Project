@@ -6,15 +6,16 @@ public class IA_StandingState : IIA
 {
     public IIA UpdateState(IA _IA , IPlayerState statePlayer)
     {
-        // Ce debug est la pour prouver que je peut connaitre L'etat du player dans n'importe quel State
+        //Ce debug est la pour prouver que je peut connaitre L'etat du player dans n'importe quel State
         //Debug.Log(statePlayer);
-        return null;
+
+        return this;
     }
 
     // Appeler lorsqu'on entre dans l'état
     public void OnEnter(IA _IA)
     {
-
+        _IA.GetComponent<MeshRenderer>().material = _IA.mStanding;
     }
 
     // Appeler lorsqu'on sort de l'état

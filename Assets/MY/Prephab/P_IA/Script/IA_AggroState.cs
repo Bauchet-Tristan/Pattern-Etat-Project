@@ -8,14 +8,18 @@ public class IA_AggroState : IIA
     {
         // Ce debug est la pour prouver que je peut connaitre L'etat du player dans n'importe quel State
         //Debug.Log(statePlayer);
-        _IA.transform.position += Vector3.up * 5f * Time.deltaTime;
-
-        return null;
+        /*if (_IA.transform.position.y <= 1.1f)
+        {
+            _IA.transform.position += Vector3.up * 1000f * Time.deltaTime;
+        }
+        */
+        return this;
     }
 
     // Appeler lorsqu'on entre dans l'état
     public void OnEnter(IA _IA)
     {
+        _IA.GetComponent<MeshRenderer>().material = _IA.mAggro;
 
     }
 

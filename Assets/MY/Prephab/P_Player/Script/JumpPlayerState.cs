@@ -4,14 +4,15 @@ using UnityEngine;
 public class JumpPlayerState : IPlayerState
 {
     private Player PlayerRef;
+    
+
     public IPlayerState UpdateState(Player _player)
     {
         //chech si le player est revenu a hauteur du sol
-        if(PlayerRef.transform.position.y <= 1.0f )
+        if(PlayerRef.transform.position.y <= 1.1f )
         {
             return new StandingPlayerState();
         }
-
 
         return null;
     }
@@ -20,6 +21,7 @@ public class JumpPlayerState : IPlayerState
     {
         PlayerRef = _player;
         //Debug.Log("JumpPlayerState - OnEnter");
+        //JUMP(_player, _player);
         Jump();
     }
 
@@ -30,6 +32,7 @@ public class JumpPlayerState : IPlayerState
 
     public void Jump()
     {
-        PlayerRef.transform.position += Vector3.up * 500f * Time.deltaTime;
+        Debug.Log("je saute");
+        PlayerRef.transform.position += Vector3.up * 1000f * Time.deltaTime;
     }
 }

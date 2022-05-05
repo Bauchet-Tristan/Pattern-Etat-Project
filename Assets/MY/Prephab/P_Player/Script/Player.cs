@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
             m_currentState.OnEnter(this);
         }
 
-        Movement();
+       // Movement();
 
     }
 
@@ -51,7 +51,14 @@ public class Player : MonoBehaviour
         {
             this.transform.position += Vector3.right * speed * Time.deltaTime;
         }
+    }
 
+    private void OnGUI()
+    {
+        var centeredStyle = GUI.skin.GetStyle("Label");
+        centeredStyle.alignment = TextAnchor.UpperCenter;
+        GUI.Label(new Rect(Screen.width / 5 , Screen.height / 2 , 500, 50),"Player state = " + m_currentState.ToString(), centeredStyle);
+  
     }
 
 }
